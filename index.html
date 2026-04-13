@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>💕 情侣点餐系统 - 爱心便当</title>
+    <title>💕 格格的美食工坊</title>
     <style>
         * {
             margin: 0;
@@ -369,7 +369,7 @@
     <div class="container">
         <div class="header">
             <div class="heart-icon">💕</div>
-            <h1>🍜 格格御膳房</h1>
+            <h1>🍜 格格的御膳房</h1>
             <p>选你想吃的，我来准备 💖</p>
         </div>
         
@@ -397,7 +397,7 @@
     
     <script>
         // ==================== 配置区域 ====================
-        // 固定接收邮箱（你的139邮箱）
+        // 固定接收邮箱
         const FIXED_EMAIL = "15952039339@139.com";
         
         // EmailJS 配置
@@ -405,13 +405,15 @@
         const EMAILJS_SERVICE_ID = "service_0jezwpj";
         const EMAILJS_TEMPLATE_ID = "template_p1h8b6m";
         
-        // ==================== 可爱菜单数据 ====================
+        // ==================== 可爱菜单数据（已修正）====================
         const menuData = {
-            "🍖 肉肉专区": ["鱼香肉丝🌶️🌶️", "宫保鸡丁🌶️🌶️🌶️", "麻婆豆腐", "回锅肉", "糖醋里脊", "水煮鱼", "红烧肉", "可乐鸡翅"],
-            "🥗 清爽小菜": ["拍黄瓜", "凉拌木耳", "口水鸡", "皮蛋豆腐", "凉拌海带丝", "蒜泥白肉", "凉拌三丝"],
-            "🍚 主食宝贝": ["米饭", "炒饭", "炒面", "饺子", "馒头", "包子", "面条", "蛋炒饭"],
-            "🍲 暖心汤羹": ["西红柿蛋汤", "紫菜蛋花汤", "酸辣汤", "玉米羹", "排骨汤", "鸡汤", "南瓜汤"],
-            "🥤 快乐水": ["可乐", "雪碧", "橙汁", "矿泉水", "啤酒", "凉茶", "椰汁", "奶茶"]
+            "🍖 肉肉专区": ["辣椒炒肉🌶️🌶️🌶️", "干锅包菜","地三鲜","番茄金针菇肥牛", "西红柿鸡蛋", "蚝油生菜", "酸辣土豆丝🌶️", "水煮鱼", "黄瓜鸡蛋炒火腿", "可乐鸡翅", "油门大虾", "蒜苔炒肉", "蒜黄鸡蛋"],
+            "🥗 清爽小菜": ["拍黄瓜", "凉拌海带丝", "凉拌毛豆🌶️🌶️", "凉拌圆葱", "东北大扯皮🌶️", "凉拌豆皮🌶️🌶️🌶️"],
+            "🍚 主食": ["米饭", "炒面", "饺子", "馒头", "包子", "面条", "蛋炒饭"],
+            "🍲 暖心汤羹": ["西红柿蛋汤", "紫菜蛋花汤", "排骨汤", "番茄菌菇汤", "三鲜汤"],
+            "🥤 快乐水": ["可乐", "雪碧", "橙汁", "矿泉水", "温水", "旺仔牛奶", "椰汁", "奶茶", "AD钙"],
+            "🍪 零食": ["干脆面", "薯片", "梅子", "辣条", "旺仔牛奶"],
+            "🍎 水果": ["苹果", "香蕉", "草莓", "橘子", "菠萝", "蓝莓", "西瓜"]
         };
         
         let selectedItems = new Set();
@@ -488,11 +490,11 @@
         function generateOrderText() {
             const now = new Date();
             const timeStr = now.toLocaleString('zh-CN', { hour12: false });
-            let orderText = `💕 ========== 亲爱的订单来啦 ========== 💕\n`;
+            let orderText = `💕 ========== 格格的订单来啦 ========== 💕\n`;
             orderText += `💗 点餐时间：${timeStr}\n`;
             orderText += `💗 订单编号：${Date.now()}\n`;
-            orderText += `💗 宝贝点了：${selectedItems.size} 道菜\n\n`;
-            orderText += `🍽️ 【宝贝想吃】🍽️\n`;
+            orderText += `💗 好格格点了：${selectedItems.size} 道菜\n\n`;
+            orderText += `🍽️ 【好格格想吃】🍽️\n`;
             
             const itemsArray = Array.from(selectedItems);
             itemsArray.forEach((item, index) => {
@@ -521,7 +523,7 @@
                 });
                 
                 console.log('发送成功:', response);
-                return { success: true, message: '💌 订单已发送给亲爱的啦！💌' };
+                return { success: true, message: '💌 订单已发送给小李子啦！💌' };
             } catch (error) {
                 console.error('发送失败:', error);
                 return { success: false, message: '💔 发送失败：' + (error.text || error.message) + ' 💔' };
@@ -533,7 +535,7 @@
             closeModal();
             
             if (selectedItems.size === 0) {
-                alert('💕 宝贝，至少选一道菜嘛~ 我会心疼你饿肚子的 💕');
+                alert('💕 乖格格，至少选一道菜嘛~ 我会心疼你饿肚子的 💕');
                 return;
             }
             
@@ -562,7 +564,7 @@
             // 显示发送中状态
             const statusDiv = document.getElementById('sendStatus');
             statusDiv.className = 'send-status sending';
-            statusDiv.innerHTML = '<span class="loading"></span> 💕 正在把订单发给亲爱的... 💕';
+            statusDiv.innerHTML = '<span class="loading"></span> 💕 正在把订单发给小李子... 💕';
             statusDiv.style.display = 'block';
             
             // 发送邮件
@@ -573,7 +575,7 @@
                 statusDiv.innerHTML = '✅ ' + result.message;
             } else {
                 statusDiv.className = 'send-status error';
-                statusDiv.innerHTML = '❌ ' + result.message + '<br>📋 订单已复制，可以手动发给亲爱的哟';
+                statusDiv.innerHTML = '❌ ' + result.message + '<br>📋 订单已复制，可以手动发给辉哥的哟';
                 await navigator.clipboard.writeText(generateOrderText());
             }
         }
