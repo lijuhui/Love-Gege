@@ -220,7 +220,7 @@
         
         .modal {
             display: none;
-            position: fixed;
+            position: fixed;   位置:固定;
             top: 0;
             left: 0;
             width: 100%;
@@ -407,13 +407,13 @@
         
         // ==================== 可爱菜单数据（已修正）====================
         const menuData = {
-            "🍖 肉肉专区": ["辣椒炒肉🌶️🌶️🌶️", "干锅包菜","地三鲜","番茄金针菇肥牛", "西红柿鸡蛋", "蚝油生菜", "酸辣土豆丝🌶️", "水煮鱼", "黄瓜鸡蛋炒火腿", "可乐鸡翅", "油焖大虾", "蒜苔炒肉", "蒜黄鸡蛋"],
+            "🍖 肉肉专区": ["辣椒炒肉🌶️🌶️🌶️", "干锅包菜","地三鲜","番茄金针菇肥牛", "西红柿鸡蛋", "蚝油生菜", "酸辣土豆丝🌶️", "水煮鱼", "黄瓜鸡蛋炒火腿", "可乐鸡翅", "油焖大虾", "蒜苔炒肉", "蒜黄鸡蛋", "玉米鸡翅煲", "鱼香鸡蛋", "土豆炒火腿肠"],
             "🥗 清爽小菜": ["拍黄瓜", "凉拌海带丝", "凉拌毛豆🌶️🌶️", "凉拌圆葱", "东北大扯皮🌶️", "凉拌豆皮🌶️🌶️🌶️"],
             "🍚 主食": ["米饭", "炒面", "饺子", "馒头", "包子", "面条", "蛋炒饭"],
             "🍲 暖心汤羹": ["西红柿蛋汤", "紫菜蛋花汤", "排骨汤", "番茄菌菇汤", "三鲜汤"],
             "🥤 快乐水": ["可乐", "雪碧", "橙汁", "矿泉水", "温水", "旺仔牛奶", "椰汁", "奶茶", "AD钙"],
             "🍪 零食": ["干脆面", "薯片", "梅子", "辣条", "旺仔牛奶"],
-            "🍎 水果": ["苹果", "香蕉", "草莓", "橘子", "菠萝", "蓝莓", "西瓜"]
+            "🍎 水果": ["苹果", "香蕉", "草莓", "橘子", "菠萝", "蓝莓", "西瓜","荔枝","哈密瓜"]
         };
         
         let selectedItems = new Set();
@@ -554,18 +554,18 @@
             const totalDiv = document.createElement('div');
             totalDiv.className = 'order-item';
             totalDiv.style.fontWeight = 'bold';
-            totalDiv.style.marginTop = '10px';
+            totalDiv.style   风格.marginTop = '10px';
             totalDiv.textContent = `💗 共 ${selectedItems.size} 道菜 💗`;
             orderList.appendChild(totalDiv);
             
             // 显示弹窗
-            document.getElementById('orderModal').style.display = 'flex';
+            document.getElementById('orderModal').style   风格.display = 'flex';
             
             // 显示发送中状态
             const statusDiv = document.getElementById('sendStatus');
             statusDiv.className = 'send-status sending';
             statusDiv.innerHTML = '<span class="loading"></span> 💕 正在把订单发给小李子... 💕';
-            statusDiv.style.display = 'block';
+            statusDiv.style   风格.display = 'block';
             
             // 发送邮件
             const result = await sendToFixedEmail();
@@ -584,12 +584,12 @@
         function closeModal() {
             const modal = document.getElementById('orderModal');
             if (modal) {
-                modal.style.display = 'none';
+                modal.style   风格.display = 'none';
             }
             const statusDiv = document.getElementById('sendStatus');
             if (statusDiv) {
                 statusDiv.className = 'send-status';
-                statusDiv.style.display = 'none';
+                statusDiv.style   风格.display = 'none';
             }
         }
         
@@ -605,4 +605,4 @@
         }
     </script>
 </body>
-</html>
+</   & lt;html>
