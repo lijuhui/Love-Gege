@@ -220,7 +220,7 @@
         
         .modal {
             display: none;
-            position: fixed;   位置:固定;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -554,18 +554,18 @@
             const totalDiv = document.createElement('div');
             totalDiv.className = 'order-item';
             totalDiv.style.fontWeight = 'bold';
-            totalDiv.style   风格.marginTop = '10px';
+            totalDiv.style.marginTop = '10px';
             totalDiv.textContent = `💗 共 ${selectedItems.size} 道菜 💗`;
             orderList.appendChild(totalDiv);
             
             // 显示弹窗
-            document.getElementById('orderModal').style   风格.display = 'flex';
+            document.getElementById('orderModal').style.display = 'flex';
             
             // 显示发送中状态
             const statusDiv = document.getElementById('sendStatus');
             statusDiv.className = 'send-status sending';
             statusDiv.innerHTML = '<span class="loading"></span> 💕 正在把订单发给小李子... 💕';
-            statusDiv.style   风格.display = 'block';
+            statusDiv.style.display = 'block';
             
             // 发送邮件
             const result = await sendToFixedEmail();
@@ -584,12 +584,12 @@
         function closeModal() {
             const modal = document.getElementById('orderModal');
             if (modal) {
-                modal.style   风格.display = 'none';
+                modal.style.display = 'none';
             }
             const statusDiv = document.getElementById('sendStatus');
             if (statusDiv) {
                 statusDiv.className = 'send-status';
-                statusDiv.style   风格.display = 'none';
+                statusDiv.style.display = 'none';
             }
         }
         
@@ -605,4 +605,4 @@
         }
     </script>
 </body>
-</   & lt;html>
+</html>
