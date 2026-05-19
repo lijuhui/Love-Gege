@@ -553,43 +553,43 @@
             
             const totalDiv = document.createElement('div');
             totalDiv.className = 'order-item';
-            totalDiv.style   风格.fontWeight = 'bold'   “大胆”;
-            totalDiv.style.marginTop = '10px';totaldiv .style   风格.margin   保证金 = '10px'   “10 px”；
+            totalDiv.style.fontWeight = 'bold';
+            totalDiv.style.marginTop = '10px';
             totalDiv.textContent = `💗 共 ${selectedItems.size} 道菜 💗`;
-            orderList.appendChild(totalDiv);orderList appendChild   列表末尾 (totalDiv);
+            orderList.appendChild(totalDiv);
             
             // 显示弹窗
-            document.getElementById('orderModal').style.display = 'flex';文档getElementById(’orderModal’)风格。显示=“flex”;
+            document.getElementById('orderModal').style.display = 'flex';
             
             // 显示发送中状态
-            const statusDiv = document.getElementById('sendStatus');const   常量 statusDiv = document   文档.getElementById('sendStatus'   “sendStatus”)；
-            statusDiv.className = 'send-status sending';statusDiv。className = 'send-status sending'   “send-status发送”；
-            statusDiv.innerHTML = '<span class="loading"></span> 💕 正在把订单发给小李子... 💕';statusDiv.innerHTML = '<span class="loading"></span> 💕 正在把订单发给小李子... 💕''<span class="loading"></span> 💕 正在把订单发给小李子... 💕''<span class="loading"></span> 💕 正在把订单发给小李子... 💕''<span class="loading"></span> 💕 正在把订单发给小李子... 💕''<span class="loading"></span> 💕 正在把订单发给小李子... 💕''<span class="loading"></span> 💕 正在把订单发给小李子... 💕''<span class="loading"></span> 💕 正在把订单发给小李子... 💕''<span class="loading"></span> 💕 正在把订单发给小李子... 💕''<span class="loading"></span> 💕 正在把订单发给小李子... 💕''<span class="loading"></span> 💕 正在把订单发给小李子... 💕''<span class="loading"></span> 💕 正在把订单发给小李子... 💕''<span class="loading"></span> 💕 正在把订单发给小李子... 💕''<span class="loading"></span> 💕 正在把订单发给小李子... 💕''<span class="loading"></span> 💕 正在把订单发给小李子... 💕''<span class="loading"></span> 💕 正在把订单发给小李子... 💕''<span class="loading"></span> 💕 正在把订单发给小李子... 💕''<span class="loading"></span> 💕 正在把订单发给小李子... 💕';
-            statusDiv.style.display = 'block';statusDiv.style   风格.display   显示 = 'block'   “块”；
+            const statusDiv = document.getElementById('sendStatus');
+            statusDiv.className = 'send-status sending';
+            statusDiv.innerHTML = '<span class="loading"></span> 💕 正在把订单发给小李子... 💕';
+            statusDiv.style.display = 'block';
             
             // 发送邮件
-            const result = await sendToFixedEmail();const   常量   结果 result      结果结果 = await   等待 sendToFixedEmail()；
+            const result = await sendToFixedEmail();
             
-            if (result.success) {   If (result   结果.success   成功) {
-                statusDiv.className = 'send-status success';statusDiv。className = 'send-status success'   “send-status成功”；
-                statusDiv.innerHTML = '✅ ' + result.message;statusDiv。innerHTML = ‘✅’ result   结果.message；
+            if (result.success) {
+                statusDiv.className = 'send-status success';
+                statusDiv.innerHTML = '✅ ' + result.message;
             } else {
-                statusDiv.className = 'send-status error';statusDiv。className = ‘发送状态错误’；
-                statusDiv.innerHTML = '❌ ' + result.message + '<br>📋 订单已复制，可以手动发给辉哥的哟';statusDiv.innerHTML = '❌ '   “❌”   result      结果结果.message   消息   '<br>📋 订单已复制，可以手动发给辉哥的哟';
+                statusDiv.className = 'send-status error';
+                statusDiv.innerHTML = '❌ ' + result.message + '<br>📋 订单已复制，可以手动发给辉哥的哟';
                 await navigator.clipboard.writeText(generateOrderText());
             }
         }
         
         // 关闭弹窗
-        function closeModal() {   函数closemode () {
-            const modal = document.getElementById('orderModal');const   常量   模态 modal      模态模态 = document   文档.getElementById('orderModal'   ’orderModal’)；
-            if (modal) {   If (modal   模态) {
-                modal.style.display = 'none';mode .style   风格.display   显示 = 'none'   “没有”；
+        function closeModal() {
+            const modal = document.getElementById('orderModal');
+            if (modal) {
+                modal.style.display = 'none';
             }
-            const statusDiv = document.getElementById('sendStatus');const   常量 statusDiv = document   文档.getElementById('sendStatus'   “sendStatus”)；
-            if (statusDiv) {   如果(状态){
-                statusDiv.className = 'send-status';statusDiv。className = 'send-status'   “send-status”；
-                statusDiv.style.display = 'none';statusDiv.style   风格.display   显示 = 'none'   “没有”；
+            const statusDiv = document.getElementById('sendStatus');
+            if (statusDiv) {
+                statusDiv.className = 'send-status';
+                statusDiv.style.display = 'none';
             }
         }
         
@@ -597,12 +597,12 @@
         renderMenu();
         
         // 点击弹窗外部关闭
-        window.onclick = function(event) {窗口。Onclick = function   函数(event   事件) {
-            const modal = document.getElementById('orderModal');const   常量   模态 modal      模态模态 = document   文档.getElementById('orderModal'   ’orderModal’)；
-            if (event.target === modal) {如果事件。Target === modal   模态) {
+        window.onclick = function(event) {
+            const modal = document.getElementById('orderModal');
+            if (event.target === modal) {
                 closeModal();
             }
         }
-    </script>   < / script>
-</body>   < / body>
-</html>   < / html>
+    </script>
+</body>
+</html>
